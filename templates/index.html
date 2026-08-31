@@ -4,11 +4,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get to know Ajibua David</title>
+    <title>David Ajibua</title>
+    <style>
+        :root {
+            --paper: #FAFAF6;
+            --ink: #1B1F23;
+            --accent: #2B3A67;
+            --muted: #6B7280;
+            --grid-line: #E4E7EB;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: var(--paper);
+            color: var(--ink);
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image:
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 48px 48px;
+            background-position: center;
+        }
+
+        main {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .name {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-weight: 500;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 1;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .caret {
+            display: inline-block;
+            width: 0.1em;
+            background: var(--accent);
+            margin-left: 0.08em;
+            animation: blink 1.1s step-end infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            45% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .role {
+            font-family: 'Courier New', ui-monospace, monospace;
+            font-weight: 400;
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-top: 1rem;
+            letter-spacing: 0.01em;
+        }
+
+        .status {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            font-family: 'Courier New', ui-monospace, monospace;
+            font-size: 0.8rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .caret {
+                animation: none;
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
+    <main>
+        <h1 class="name">David Ajibua<span class="caret">&nbsp;</span></h1>
+        <p class="role">backend engineer &middot; mathematics</p>
+    </main>
+    <div class="status">
+        <span class="dot"></span>
+        <span>site under construction</span>
+    </div>
 </body>
 
 </html>

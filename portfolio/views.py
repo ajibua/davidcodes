@@ -50,7 +50,7 @@ DATA_SCIENCE = [
 CONTACT = [
     ("GitHub", "https://github.com/ajibua"),
     ("Email", "mailto:ajibuadomts@gmail.com"),
-    ("Twitter", "https://x.com/murewa.py"),
+    ("Twitter", "https://x.com/Ajjibua_David"),
     ("LinkedIn", "https://www.linkedin.com/in/david-ajibua-a471893a7"),
 ]
 

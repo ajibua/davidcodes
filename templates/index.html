@@ -195,14 +195,14 @@
             <p class="role">Backend engineer &middot; Data Scientist</p>
             <p class="pitch">I ship AI-integrated backends that hold up under real constraints: free-tier hosting and tight timelines.</p>
             <div class="cta" id="switch" role="tablist" aria-label="Choose work type">
-                <button type="button" class="btn" role="tab" id="tab-backend" aria-selected="true" aria-controls="backend" data-panel="backend">See backend work</button>
+                <button type="button" class="btn" role="tab" id="tab-backend" aria-selected="false" aria-controls="backend" data-panel="backend">See backend work</button>
                 <button type="button" class="btn" role="tab" id="tab-data-science" aria-selected="false" aria-controls="data-science" data-panel="data-science">See data science</button>
             </div>
             <div class="avail"><span class="dot"></span><span>Available for freelance work</span></div>
         </div>
     </header>
 
-    <section class="panel" id="backend" role="tabpanel" aria-labelledby="tab-backend">
+    <section class="panel" id="backend" role="tabpanel" aria-labelledby="tab-backend" hidden>
         <p class="label">Backend</p>
         <h2>Backend engineering</h2>
         <p class="intro">Python backends with FastAPI and Django, wired to AI where it earns its place.</p>
@@ -241,30 +241,37 @@
 
     <script>
         (function () {
-            var sw = document.getElementById('switch');
-            var tabs = sw.querySelectorAll('button');
+            var tabs = document.querySelectorAll('[data-panel]');
             var panels = document.querySelectorAll('.panel');
 
+            // id = panel to show, or null to hide everything
             function show(id, updateHash) {
-                if (id !== 'backend' && id !== 'data-science') { id = 'backend'; }
                 for (var i = 0; i < tabs.length; i++) {
                     var on = tabs[i].getAttribute('data-panel') === id;
                     tabs[i].setAttribute('aria-selected', on ? 'true' : 'false');
                 }
                 for (var j = 0; j < panels.length; j++) { panels[j].hidden = panels[j].id !== id; }
-                if (updateHash) { history.replaceState(null, '', '#' + id); }
+                if (updateHash) {
+                    history.replaceState(null, '', id ? '#' + id : location.pathname + location.search);
+                }
             }
 
-            var triggers = document.querySelectorAll('[data-panel]');
-            for (var k = 0; k < triggers.length; k++) {
-                triggers[k].addEventListener('click', function (e) {
-                    e.preventDefault();
-                    show(this.getAttribute('data-panel'), true);
-                    document.getElementById(this.getAttribute('data-panel')).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            for (var k = 0; k < tabs.length; k++) {
+                tabs[k].addEventListener('click', function () {
+                    var id = this.getAttribute('data-panel');
+                    var open = this.getAttribute('aria-selected') === 'true';
+                    if (open) {
+                        show(null, true);
+                    } else {
+                        show(id, true);
+                        document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 });
             }
 
-            show(location.hash.replace('#', ''), false);
+            // Only open something on load if the URL asks for it 
+            var start = location.hash.replace('#', '');
+            show(start === 'backend' || start === 'data-science' ? start : null, false);
         })();
     </script>
 </body>

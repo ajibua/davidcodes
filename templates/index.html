@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Ajibua</title>
+    <title>David Ajibua | Backend Engineer &amp; Data Scientist</title>
+    <meta name="description" content="I ship AI-integrated backends that hold up under real constraints.">
     <style>
         :root {
             --paper: #FAFAF6;
@@ -12,26 +13,39 @@
             --accent: #2B3A67;
             --muted: #6B7280;
             --grid-line: #E4E7EB;
+            --card: #FFFFFF;
+            --mono: 'Courier New', ui-monospace, monospace;
+            --serif: Georgia, 'Times New Roman', serif;
         }
 
         * {
             box-sizing: border-box;
         }
 
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            background: var(--paper);
-            color: var(--ink);
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            line-height: 1.55;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        /* Hero (keeps the grid look) */
+        .hero {
+            min-height: 88vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            text-align: center;
+            padding: 2rem 1.25rem;
             background-image:
                 linear-gradient(var(--grid-line) 1px, transparent 1px),
                 linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
@@ -39,13 +53,8 @@
             background-position: center;
         }
 
-        main {
-            text-align: center;
-            padding: 2rem;
-        }
-
         .name {
-            font-family: Georgia, 'Times New Roman', serif;
+            font-family: var(--serif);
             font-weight: 500;
             font-size: clamp(2.5rem, 8vw, 5rem);
             line-height: 1;
@@ -75,22 +84,48 @@
         }
 
         .role {
-            font-family: 'Courier New', ui-monospace, monospace;
-            font-weight: 400;
+            font-family: var(--mono);
             font-size: 0.95rem;
             color: var(--muted);
-            margin-top: 1rem;
-            letter-spacing: 0.01em;
+            margin: 1rem 0 0;
         }
 
-        .status {
-            position: fixed;
-            bottom: 1.5rem;
-            left: 1.5rem;
-            font-family: 'Courier New', ui-monospace, monospace;
+        .pitch {
+            max-width: 34rem;
+            margin: 1.5rem auto 0;
+            font-family: var(--serif);
+            font-size: clamp(1.1rem, 2.6vw, 1.35rem);
+        }
+
+        .cta {
+            margin-top: 1.75rem;
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            background: var(--paper);
+        }
+
+        .btn.primary {
+            background: var(--accent);
+            color: var(--paper);
+        }
+
+        .avail {
+            margin-top: 1.5rem;
+            font-family: var(--mono);
             font-size: 0.8rem;
             color: var(--muted);
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
         }
@@ -102,7 +137,112 @@
             background: var(--accent);
         }
 
+        /* Sections */
+        section {
+            max-width: 60rem;
+            margin: 0 auto;
+            padding: 4rem 1.25rem 1rem;
+        }
+
+        .label {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        h2 {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 2rem;
+            margin: 0.25rem 0 0.5rem;
+        }
+
+        .intro {
+            color: var(--muted);
+            max-width: 40rem;
+            margin: 0 0 1.75rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--grid-line);
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h3 {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 1.25rem;
+            margin: 0 0 0.5rem;
+        }
+
+        .card p {
+            margin: 0 0 1rem;
+            font-size: 0.95rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: auto;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tags li {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--accent);
+            border: 1px solid var(--grid-line);
+            padding: 0.1rem 0.45rem;
+        }
+
+        .links {
+            margin-top: 0.85rem;
+            display: flex;
+            gap: 1rem;
+            font-family: var(--mono);
+            font-size: 0.82rem;
+        }
+
+        .badge {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--muted);
+            border: 1px dashed var(--muted);
+            padding: 0 0.4rem;
+            margin-left: 0.4rem;
+            vertical-align: middle;
+        }
+
+        footer {
+            max-width: 60rem;
+            margin: 0 auto;
+            padding: 4rem 1.25rem 3rem;
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            color: var(--muted);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
         @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
             .caret {
                 animation: none;
                 opacity: 1;
@@ -112,14 +252,60 @@
 </head>
 
 <body>
-    <main>
-        <h1 class="name">David Ajibua<span class="caret">&nbsp;</span></h1>
-        <p class="role">Backend engineer &middot; Data Scientist</p>
-    </main>
-    <div class="status">
-        <span class="dot"></span>
-        <span>Something Big is Coming!!!</span>
-    </div>
+    <header class="hero">
+        <div>
+            <h1 class="name">David Ajibua<span class="caret">&nbsp;</span></h1>
+            <p class="role">Backend engineer &middot; Data Scientist</p>
+            <p class="pitch">I ship AI-integrated backends that hold up under real constraints: free-tier hosting and
+                tight timelines.</p>
+            <div class="cta">
+                <a class="btn primary" href="#backend">See backend work</a>
+                <a class="btn" href="#data-science">See data science</a>
+            </div>
+            <div class="avail"><span class="dot"></span><span>Available for freelance work</span></div>
+        </div>
+    </header>
+
+    <section id="backend">
+        <p class="label">01 / Backend</p>
+        <h2>Backend engineering</h2>
+        <p class="intro">Python backends with FastAPI and Django, wired to AI where it earns its place.</p>
+        <div class="grid">
+            {% for p in backend %}
+            <article class="card">
+                <h3>{{ p.name }}</h3>
+                <p>{{ p.blurb }}</p>
+                <ul class="tags">{% for t in p.stack %}<li>{{ t }}</li>{% endfor %}</ul>
+                {% if p.links %}<div class="links">{% for label, url in p.links %}<a href="{{ url }}" target="_blank"
+                        rel="noopener">{{ label }} &rarr;</a>{% endfor %}</div>{% endif %}
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="data-science">
+        <p class="label">02 / Data science</p>
+        <h2>Data science</h2>
+        <p class="intro">Mathematics at FUTA, heading toward biostatistics. I care about whether the data fits the
+            question before any model gets built.</p>
+        <div class="grid">
+            {% for p in data_science %}
+            <article class="card">
+                <h3>{{ p.name }}{% if p.status %}<span class="badge">{{ p.status }}</span>{% endif %}</h3>
+                <p>{{ p.blurb }}</p>
+                <ul class="tags">{% for t in p.stack %}<li>{{ t }}</li>{% endfor %}</ul>
+                {% if p.links %}<div class="links">{% for label, url in p.links %}<a href="{{ url }}" target="_blank"
+                        rel="noopener">{{ label }} &rarr;</a>{% endfor %}</div>{% endif %}
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer>
+        <span>&copy; David Ajibua</span>
+        <span>{% for label, url in contact %}<a href="{{ url }}" target="_blank" rel="noopener">{{ label }}</a>{% if not
+            forloop.last %} &middot; {% endif %}{% endfor %}</span>
+    </footer>
 </body>
 
 </html>

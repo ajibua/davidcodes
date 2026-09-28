@@ -303,8 +303,11 @@
 
     <footer>
         <span>&copy; David Ajibua</span>
-        <span>{% for label, url in contact %}<a href="{{ url }}" target="_blank" rel="noopener">{{ label }}</a>{% if not
-            forloop.last %} &middot; {% endif %}{% endfor %}</span>
+        <span>
+            {% for label, url in contact %}<a href="{{ url }}" target="_blank" rel="noopener">{{ label }}</a>
+            {% if not forloop.last %} &middot; {% endif %}
+            {% endfor %}
+        </span>
     </footer>
 </body>
 

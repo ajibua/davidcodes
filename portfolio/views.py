@@ -26,13 +26,13 @@ BACKEND = [
         "blurb": "Full-stack math social platform: seven-app Django architecture, DRF with JWT auth, "
                  "and a custom dark design system.",
         "stack": ["Django 5", "DRF", "SimpleJWT", "Tailwind"],
-        "links": ["https://mathify-coral.vercel.app"],
+        "links": [("Live", "https://mathify-coral.vercel.app")],
     },
     {
         "name": "IFashion",
         "blurb": "E-commerce website for fashion lovers and Fashion designers. Ever experienced difficulty in reaching customers or don't have the funds to get a portfolio website for yourself? well, i guess this is for you.",
         "stack": ["FastAPI", "React", "Supabase", "Vercel"],
-        "links": ["https://frontend-gamma-indol-3rqffdrv0i.vercel.app"],
+        "links": [("Live", "https://frontend-gamma-indol-3rqffdrv0i.vercel.app")],
     },
 ]
 
